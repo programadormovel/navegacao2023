@@ -5,6 +5,8 @@ import { StyleSheet, Text, View,
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
+import Formulario from './src/login/Formulario';
+import styles from './Estilo';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,34 +39,6 @@ const Janela2 = ({navigation}) => {
   )
 }
 
-const Formulario = () => {
-  // estado
-  const [nome, setNome] = useState('nome');
-  const [sobrenome, setSobrenome] = useState('sobrenome');
-  const [clicou, setClicou] = useState(false)
-
-  useEffect(()=>{
-    setNome()
-  }, [clicou])
-
-  return (
-    <View style={styles.container}>
-      <TextInput style={styles.caixa}
-        placeholder='nome'
-      />
-      <TextInput style={styles.caixa}
-        placeholder='sobrenome'
-      />
-      <TouchableOpacity 
-        onPress={()=>{setClicou(true)}}
-        style={styles.botao}
-        >
-        <Text>CADASTRAR</Text>
-      </TouchableOpacity>
-    </View>
-  )
-}
-
 export default function App() {
   return (
     <NavigationContainer>
@@ -82,21 +56,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  botao: {borderRadius:16, 
-    borderWidth:1, borderColor:'blue', 
-    padding: 16, margin: 20, 
-    backgroundColor:'yellow'
-  },
-  caixa: {borderRadius:16, 
-    borderWidth:1, borderColor:'blue', 
-    padding: 16, margin: 20,
-    minWidth: 200, maxWidth: 300
-  }
-});
+
